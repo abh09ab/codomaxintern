@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Abhay Srivastava - Frontend Developer specializing in HTML, CSS, JavaScript and Docker.">
+  <meta name="keywords" content="Abhay Srivastava, Web Developer, Frontend Developer, HTML5, CSS3, JavaScript, Docker, Portfolio">
+  <meta name="author" content="Abhay Srivastava">
+  <meta name="theme-color" content="#060912">
+  <meta property="og:title" content="Abhay Srivastava | Developer Portfolio">
+  <meta property="og:description" content="Personal portfolio showcasing web development skills, projects, and background.">
+  <meta property="og:type" content="website">
+  <title>Abhay Srivastava | Web Developer Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 3D Canvas Background -->
+  <canvas id="three-canvas"></canvas>
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Parallax depth layers -->
+  <div class="parallax-layer layer-stars" id="layer-stars" aria-hidden="true"></div>
+  <div class="parallax-layer layer-grid" id="layer-grid" aria-hidden="true"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="#home" class="brand-logo" aria-label="Go to homepage">
+        <div class="logo-cube" aria-hidden="true">
+          <div class="cube-face front">AS</div>
+          <div class="cube-face back">AS</div>
+          <div class="cube-face top">AS</div>
+          <div class="cube-face bottom">AS</div>
+        </div>
+        <span class="brand-text">Abhay<span class="brand-dot">.</span>dev</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+          <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+          <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+          <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+          <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+          <span class="sun-icon">☀</span>
+          <span class="moon-icon">☽</span>
+        </button>
+        <button class="btn btn-glow btn-sm" id="open-resume-btn">Resume</button>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </div>
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="section hero-section" id="home">
+
+      <!-- Deep parallax background rings -->
+      <div class="hero-depth-ring ring-d1" id="prl-ring1" aria-hidden="true"></div>
+      <div class="hero-depth-ring ring-d2" id="prl-ring2" aria-hidden="true"></div>
+      <div class="hero-depth-ring ring-d3" id="prl-ring3" aria-hidden="true"></div>
+      <div class="hero-glow-blob blob1" id="prl-blob1" aria-hidden="true"></div>
+      <div class="hero-glow-blob blob2" id="prl-blob2" aria-hidden="true"></div>
+
+      <div class="container hero-container">
+        <!-- Hero Content (Left Column) — parallax layer -->
+        <div class="hero-content" id="prl-hero-content">
+
+          <div class="hero-tag">
+            <span class="tag-line"></span>
+            <span>Frontend Developer</span>
+            <span class="tag-line"></span>
+          </div>
+
+          <h1 class="hero-name" id="prl-hero-name">
+            <span class="name-line">Abhay</span>
+            <span class="name-line name-last"><span class="gradient-text-3d">Srivastava</span></span>
+          </h1>
+
+          <div class="hero-role-wrapper">
+            <span class="role-terminal">~$ </span>
+            <span class="hero-role" id="typewriter-text"></span>
+            <span class="cursor-blink">▊</span>
+          </div>
+
+          <p class="hero-description" id="prl-hero-desc">
+            Building pixel-perfect web experiences with clean HTML, expressive CSS, interactive JavaScript, and containerized Docker workflows.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-glow">
+              <span>View My Work</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-outline-neon">Contact Me</a>
+            <button class="btn btn-ghost" id="hero-resume-btn">Resume</button>
+          </div>
+
+          <div class="hero-socials">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74v-8.37H5.06v8.37h2.8z"/></svg>
+              LinkedIn
+            </a>
+            <a href="mailto:abhaysrivastav0982aa@gmail.com" class="social-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              Email
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero 3D Visual — parallax layer -->
+        <div class="hero-visual" id="prl-hero-visual">
+          <div class="profile-3d-scene">
+            <div class="profile-orbit-ring ring-1" aria-hidden="true"></div>
+            <div class="profile-orbit-ring ring-2" aria-hidden="true"></div>
+            <div class="profile-orbit-ring ring-3" aria-hidden="true"></div>
+
+            <!-- 3D Profile Card with PHOTO CHANGE -->
+            <div class="profile-3d-card" id="profile-3d-card">
+              <div class="profile-card-inner">
+                <img src="assets/images/profile.jpg" alt="Abhay Srivastava" class="profile-photo" id="profile-img">
+                <div class="profile-shine" aria-hidden="true"></div>
+                <!-- Photo change overlay -->
+                <div class="photo-change-overlay" id="photo-change-overlay" title="Click to change photo">
+                  <div class="photo-change-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                    <span>Change Photo</span>
+                  </div>
+                </div>
+                <!-- Hidden file input -->
+                <input type="file" id="photo-upload-input" accept="image/*" style="display:none;" aria-label="Upload new profile photo">
+              </div>
+            </div>
+
+            <!-- Orbiting Tech Icons -->
+            <div class="orbit-icon oi-html" title="HTML5" aria-hidden="true"><span>HTML</span></div>
+            <div class="orbit-icon oi-css" title="CSS3" aria-hidden="true"><span>CSS</span></div>
+            <div class="orbit-icon oi-js" title="JavaScript" aria-hidden="true"><span>JS</span></div>
+            <div class="orbit-icon oi-docker" title="Docker" aria-hidden="true"><span>🐳</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="section about-section" id="about">
+      <div class="about-bg-grid" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">// about_me</span>
+          <h2 class="section-title">Who <span class="gradient-text-3d">I Am</span></h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-terminal reveal-left">
+            <div class="terminal-window">
+              <div class="terminal-header">
+                <span class="t-dot t-red"></span>
+                <span class="t-dot t-yellow"></span>
+                <span class="t-dot t-green"></span>
+                <span class="t-title">abhay@portfolio:~</span>
+              </div>
+              <div class="terminal-body">
+                <p><span class="t-prompt">$ </span><span class="t-cmd">cat about.txt</span></p>
+                <p class="t-output">Hi! I'm <strong>Abhay Srivastava</strong> — a passionate</p>
+                <p class="t-output">frontend developer and <em>Codomax intern</em>.</p>
+                <br>
+                <p class="t-output">I craft clean, responsive web interfaces using</p>
+                <p class="t-output">HTML5, CSS3, and JavaScript. I also containerize</p>
+                <p class="t-output">apps with Docker for streamlined deployments.</p>
+                <br>
+                <p><span class="t-prompt">$ </span><span class="t-cmd">cat values.txt</span></p>
+                <p class="t-output">→ Clean, readable code above all</p>
+                <p class="t-output">→ Mobile-first, accessible design</p>
+                <p class="t-output">→ Continuous learning mindset</p>
+                <p class="t-output">→ Build real, useful projects</p>
+                <br>
+                <p><span class="t-prompt">$ </span><span class="t-cursor-blink">▊</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-info-cards reveal-right">
+            <div class="info-3d-card">
+              <div class="card-3d-glow"></div>
+              <div class="card-icon">🎓</div>
+              <div class="card-content">
+                <span class="card-label">Education</span>
+                <h4>B.Tech – Computer Science</h4>
+                <p>Software Engineering & Web Architecture</p>
+              </div>
+            </div>
+            <div class="info-3d-card">
+              <div class="card-3d-glow"></div>
+              <div class="card-icon">📍</div>
+              <div class="card-content">
+                <span class="card-label">Location</span>
+                <h4>India</h4>
+                <p>Open to Remote, Hybrid & On-Site</p>
+              </div>
+            </div>
+            <div class="info-3d-card">
+              <div class="card-3d-glow"></div>
+              <div class="card-icon">💼</div>
+              <div class="card-content">
+                <span class="card-label">Current Role</span>
+                <h4>Web Development Intern</h4>
+                <p>Codomax Internship Program</p>
+              </div>
+            </div>
+            <div class="info-3d-card">
+              <div class="card-3d-glow"></div>
+              <div class="card-icon">✉️</div>
+              <div class="card-content">
+                <span class="card-label">Email</span>
+                <h4 style="font-size: 0.82rem;">abhaysrivastav0982aa</h4>
+                <p>@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS SECTION ===== -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">// my_skills</span>
+          <h2 class="section-title">Tech <span class="gradient-text-3d">Stack</span></h2>
+          <p class="section-subtitle">My growing technical toolkit — organized by category</p>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="skill-category-tabs" role="tablist">
+          <button class="skill-cat-tab active" data-tab="frontend" role="tab" aria-selected="true">
+            <span class="tab-icon">🎨</span> Frontend
+          </button>
+          <button class="skill-cat-tab" data-tab="backend" role="tab" aria-selected="false">
+            <span class="tab-icon">⚙️</span> Backend
+          </button>
+          <button class="skill-cat-tab" data-tab="framework" role="tab" aria-selected="false">
+            <span class="tab-icon">🏗️</span> Framework / Tools
+          </button>
+        </div>
+
+        <!-- ── FRONTEND Tab ── -->
+        <div class="skill-tab-panel active" id="tab-frontend" role="tabpanel">
+          <div class="skills-3d-grid" id="skills-grid-frontend">
+
+            <!-- HTML5 -->
+            <div class="skill-3d-card reveal-card" data-skill-id="html5" data-category="frontend">
+              <div class="skill-card-glow" style="--glow-color:#e34f26;"></div>
+              <div class="skill-card-face">
+                <div class="skill-hexagon" style="--hex-color:#e34f26;">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.9 21.2L12 24l-8.6-2.8L1.5 0zm17.4 5.3H5.1l.4 4.5h12.5l-.5 5.5-5.5 1.5-5.5-1.5-.3-3.2H3.5l.6 5.5 7.9 2.2 7.9-2.2 1-11.8z"/></svg>
+                </div>
+                <h3 class="skill-name">HTML5</h3>
+                <span class="skill-badge badge-advanced">Advanced</span>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill:92%;"></div></div>
+                <p class="skill-note">Semantic markup, accessibility, SEO structure</p>
+              </div>
+              <button class="skill-delete-btn" data-id="html5" title="Remove" aria-label="Remove HTML5">✕</button>
+            </div>
+
+            <!-- CSS3 -->
+            <div class="skill-3d-card reveal-card" data-skill-id="css3" data-category="frontend">
+              <div class="skill-card-glow" style="--glow-color:#1572b6;"></div>
+              <div class="skill-card-face">
+                <div class="skill-hexagon" style="--hex-color:#1572b6;">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.9 21.2L12 24l-8.6-2.8L1.5 0zm17 5.3H5.1l.4 4.5h8.3l-.3 3.6-3.5 1-3.5-1-.2-2.1H3.6l.4 4.5 8 2.2 8-2.2.9-10.5z"/></svg>
+                </div>
+                <h3 class="skill-name">CSS3</h3>
+                <span class="skill-badge badge-advanced">Advanced</span>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill:88%;"></div></div>
+                <p class="skill-note">Flexbox, Grid, animations, custom properties</p>
+              </div>
+              <button class="skill-delete-btn" data-id="css3" title="Remove" aria-label="Remove CSS3">✕</button>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="skill-3d-card reveal-card" data-skill-id="javascript" data-category="frontend">
+              <div class="skill-card-glow" style="--glow-color:#f7df1e;"></div>
+              <div class="skill-card-face">
+                <div class="skill-hexagon" style="--hex-color:#f7df1e;">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.755-1.125-.27-.42-.404-.6-.6-.795-1.155-1.156-2.79-1.276-4.14-.706-1.59.66-2.055 2.055-1.74 3.39.36 1.545 1.785 2.235 3.12 2.805.81.345 1.68.72 1.845 1.29.255.84-.36 1.455-1.425 1.575-1.125.135-2.085-.39-2.655-1.155l-1.845 1.05c.345.69.75 1.155 1.32 1.605 1.5 1.17 3.63 1.275 5.16.48 1.44-.75 1.95-2.145 1.74-3.84zm-9.39-7.98h-2.31v8.13c0 1.635-.06 2.925-1.95 2.925-.87 0-1.485-.285-1.935-.78l-.33-.375-1.44 1.215c.66.9 1.74 1.455 3.405 1.455 2.865 0 4.56-1.71 4.56-4.665V10.296z"/></svg>
+                </div>
+                <h3 class="skill-name">JavaScript</h3>
+                <span class="skill-badge badge-proficient">Proficient</span>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill:80%;"></div></div>
+                <p class="skill-note">ES6+, DOM manipulation, async/await, APIs</p>
+              </div>
+              <button class="skill-delete-btn" data-id="javascript" title="Remove" aria-label="Remove JavaScript">✕</button>
+            </div>
+
+          </div>
+          <!-- Empty state for Frontend -->
+          <div class="skills-empty-state" id="empty-frontend" style="display:none;">
+            <span>🎨</span>
+            <p>No frontend skills yet. Add one below!</p>
+          </div>
+        </div>
+
+        <!-- ── BACKEND Tab ── -->
+        <div class="skill-tab-panel" id="tab-backend" role="tabpanel">
+          <div class="skills-3d-grid" id="skills-grid-backend"></div>
+          <div class="skills-empty-state" id="empty-backend">
+            <span>⚙️</span>
+            <p>No backend skills yet — add one when you learn!</p>
+          </div>
+        </div>
+
+        <!-- ── FRAMEWORK / TOOLS Tab ── -->
+        <div class="skill-tab-panel" id="tab-framework" role="tabpanel">
+          <div class="skills-3d-grid" id="skills-grid-framework">
+
+            <!-- Docker -->
+            <div class="skill-3d-card reveal-card" data-skill-id="docker" data-category="framework">
+              <div class="skill-card-glow" style="--glow-color:#2496ed;"></div>
+              <div class="skill-card-face">
+                <div class="skill-hexagon" style="--hex-color:#2496ed;">
+                  <span style="font-size:28px; line-height:1;">🐳</span>
+                </div>
+                <h3 class="skill-name">Docker</h3>
+                <span class="skill-badge badge-learning">Learning</span>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="--fill:65%;"></div></div>
+                <p class="skill-note">Containerization, Docker Compose, image builds</p>
+              </div>
+              <button class="skill-delete-btn" data-id="docker" title="Remove" aria-label="Remove Docker">✕</button>
+            </div>
+
+          </div>
+          <div class="skills-empty-state" id="empty-framework" style="display:none;">
+            <span>🏗️</span>
+            <p>No framework / tools yet — add one below!</p>
+          </div>
+        </div>
+
+        <!-- ── ADD NEW SKILL ── -->
+        <div class="add-skill-section">
+          <div class="add-skill-toggle-wrapper">
+            <button class="btn-add-skill-toggle" id="toggle-add-skill" aria-expanded="false" aria-controls="add-skill-panel">
+              <span class="add-icon">+</span>
+              <span>Add a New Skill</span>
+            </button>
+          </div>
+
+          <div class="add-skill-panel" id="add-skill-panel" aria-hidden="true">
+            <div class="add-skill-form-wrapper">
+              <h3 class="add-skill-title">✨ Add a Skill You've Learned</h3>
+              <form class="add-skill-form" id="add-skill-form" novalidate>
+                <div class="aform-row">
+                  <div class="aform-group">
+                    <label for="skill-name-input">Skill Name <span class="req">*</span></label>
+                    <input type="text" id="skill-name-input" class="aform-input" placeholder="e.g. React.js, Node.js, Git" required maxlength="30">
+                  </div>
+                  <div class="aform-group">
+                    <label for="skill-cat-input">Category <span class="req">*</span></label>
+                    <select id="skill-cat-input" class="aform-select" required>
+                      <option value="">Select category...</option>
+                      <option value="frontend">🎨 Frontend</option>
+                      <option value="backend">⚙️ Backend</option>
+                      <option value="framework">🏗️ Framework / Tools</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="aform-row">
+                  <div class="aform-group">
+                    <label for="skill-level-input">Proficiency Level <span class="req">*</span></label>
+                    <select id="skill-level-input" class="aform-select" required>
+                      <option value="">Select level...</option>
+                      <option value="beginner">Beginner</option>
+                      <option value="learning">Learning</option>
+                      <option value="proficient">Proficient</option>
+                      <option value="advanced">Advanced</option>
+                      <option value="expert">Expert</option>
+                    </select>
+                  </div>
+                  <div class="aform-group">
+                    <label for="skill-note-input">Short Note (optional)</label>
+                    <input type="text" id="skill-note-input" class="aform-input" placeholder="e.g. Started learning in Oct 2026" maxlength="60">
+                  </div>
+                </div>
+                <div class="aform-row">
+                  <div class="aform-group">
+                    <label for="skill-color-input">Accent Color</label>
+                    <div class="color-picker-row">
+                      <input type="color" id="skill-color-input" class="aform-color" value="#8b5cf6">
+                      <div class="color-presets">
+                        <span class="cp" style="--cp:#ef4444;" data-color="#ef4444" title="Red"></span>
+                        <span class="cp" style="--cp:#f97316;" data-color="#f97316" title="Orange"></span>
+                        <span class="cp" style="--cp:#eab308;" data-color="#eab308" title="Yellow"></span>
+                        <span class="cp" style="--cp:#22c55e;" data-color="#22c55e" title="Green"></span>
+                        <span class="cp" style="--cp:#06b6d4;" data-color="#06b6d4" title="Cyan"></span>
+                        <span class="cp" style="--cp:#6366f1;" data-color="#6366f1" title="Indigo"></span>
+                        <span class="cp active" style="--cp:#8b5cf6;" data-color="#8b5cf6" title="Violet"></span>
+                        <span class="cp" style="--cp:#ec4899;" data-color="#ec4899" title="Pink"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="aform-actions">
+                  <button type="submit" class="btn btn-glow">Add to My Skills 🚀</button>
+                  <button type="button" class="btn btn-outline-neon" id="cancel-add-skill">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">// featured_work</span>
+          <h2 class="section-title">My <span class="gradient-text-3d">Projects</span></h2>
+          <p class="section-subtitle">Real-world applications I've built from scratch.</p>
+        </div>
+
+        <div class="projects-3d-grid">
+
+          <!-- Project 1: 3D Ulpin -->
+          <article class="project-3d-card reveal-card">
+            <div class="project-card-inner">
+              <div class="project-media project-code-preview" style="background: linear-gradient(135deg, #060912 0%, #0e1830 50%, #0a1628 100%);">
+                <div class="code-win-header">
+                  <span class="cdot r"></span><span class="cdot y"></span><span class="cdot g"></span>
+                  <span class="cfile">3D-Ulpin / index.html</span>
+                </div>
+                <div class="project-visual-placeholder" style="--proj-color1: #4f8ef7; --proj-color2: #9b5de5;">
+                  <div class="pvp-icon">📍</div>
+                  <div class="pvp-rings">
+                    <div class="pvp-ring r1"></div>
+                    <div class="pvp-ring r2"></div>
+                    <div class="pvp-ring r3"></div>
+                  </div>
+                  <div class="pvp-label">3D Ulpin</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-header-row">
+                  <h3 class="project-title">3D Ulpin</h3>
+                  <span class="project-type-chip">3D · Location</span>
+                </div>
+                <p class="project-desc">An interactive 3D location pin visualizer. Drop pins on a 3D scene, explore spatial data with smooth animations and a beautiful dark interface.</p>
+                <div class="project-stack">
+                  <span class="stack-chip">HTML5</span>
+                  <span class="stack-chip">CSS3</span>
+                  <span class="stack-chip">JavaScript</span>
+                  <span class="stack-chip">3D</span>
+                </div>
+                <div class="project-actions">
+                  <button class="btn btn-glow btn-sm project-demo-btn" data-project="3D Ulpin">Live Demo</button>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-neon btn-sm">GitHub</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Aptiquizz -->
+          <article class="project-3d-card reveal-card">
+            <div class="project-card-inner">
+              <div class="project-media project-code-preview" style="background: linear-gradient(135deg, #060912 0%, #140e2a 50%, #0a1628 100%);">
+                <div class="code-win-header">
+                  <span class="cdot r"></span><span class="cdot y"></span><span class="cdot g"></span>
+                  <span class="cfile">aptiquizz / quiz.js</span>
+                </div>
+                <div class="project-visual-placeholder" style="--proj-color1: #f72585; --proj-color2: #f9c74f;">
+                  <div class="pvp-icon">🧠</div>
+                  <div class="pvp-rings">
+                    <div class="pvp-ring r1" style="border-color: rgba(247,37,133,0.4);"></div>
+                    <div class="pvp-ring r2" style="border-color: rgba(249,199,79,0.3);"></div>
+                    <div class="pvp-ring r3" style="border-color: rgba(247,37,133,0.15);"></div>
+                  </div>
+                  <div class="pvp-label" style="color: #f72585;">Aptiquizz</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-header-row">
+                  <h3 class="project-title">Aptiquizz</h3>
+                  <span class="project-type-chip" style="color: var(--neon-pink); background: rgba(247,37,133,0.1); border-color: rgba(247,37,133,0.25);">Quiz · Aptitude</span>
+                </div>
+                <p class="project-desc">A web-based aptitude quiz application with timed questions, score tracking, multiple categories, and instant result feedback with a polished dark UI.</p>
+                <div class="project-stack">
+                  <span class="stack-chip">HTML5</span>
+                  <span class="stack-chip">CSS3</span>
+                  <span class="stack-chip">Vanilla JS</span>
+                  <span class="stack-chip">LocalStorage</span>
+                </div>
+                <div class="project-actions">
+                  <button class="btn btn-glow btn-sm project-demo-btn" data-project="Aptiquizz">Live Demo</button>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-neon btn-sm">GitHub</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: This Portfolio -->
+          <article class="project-3d-card reveal-card project-code-card">
+            <div class="project-card-inner">
+              <div class="project-media project-code-preview">
+                <div class="code-win-header">
+                  <span class="cdot r"></span><span class="cdot y"></span><span class="cdot g"></span>
+                  <span class="cfile">portfolio.html</span>
+                </div>
+                <pre class="code-win-body"><code><span class="ct">&lt;section</span> <span class="ca">id</span>=<span class="cs">"hero"</span><span class="ct">&gt;</span>
+  <span class="ct">&lt;h1&gt;</span>Abhay Srivastava<span class="ct">&lt;/h1&gt;</span>
+  <span class="ct">&lt;p&gt;</span>Frontend Developer<span class="ct">&lt;/p&gt;</span>
+  <span class="ct">&lt;button</span> <span class="ca">class</span>=<span class="cs">"btn-glow"</span><span class="ct">&gt;</span>
+    View Projects
+  <span class="ct">&lt;/button&gt;</span>
+<span class="ct">&lt;/section&gt;</span></code></pre>
+              </div>
+              <div class="project-body">
+                <div class="project-header-row">
+                  <h3 class="project-title">This Portfolio</h3>
+                  <span class="project-type-chip" style="color:var(--neon-cyan); background:rgba(0,245,212,0.08); border-color:rgba(0,245,212,0.2);">Portfolio · 3D UI</span>
+                </div>
+                <p class="project-desc">High-performance developer portfolio with 3D parallax scroll, animated background, dynamic skill manager, dark/light modes, and full responsive design.</p>
+                <div class="project-stack">
+                  <span class="stack-chip">HTML5</span>
+                  <span class="stack-chip">CSS3</span>
+                  <span class="stack-chip">JS</span>
+                  <span class="stack-chip">Three.js</span>
+                </div>
+                <div class="project-actions">
+                  <a href="#home" class="btn btn-glow btn-sm">View Live</a>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-neon btn-sm">Source</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="section contact-section" id="contact">
+      <div class="contact-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">// get_in_touch</span>
+          <h2 class="section-title">Let's <span class="gradient-text-3d">Connect</span></h2>
+          <p class="section-subtitle">Have a project idea or opportunity? Let's talk!</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-col reveal-left">
+            <div class="contact-neon-card">
+              <h3>Ready to collaborate?</h3>
+              <p>I'm actively looking for web development internships, junior roles, and exciting projects to work on.</p>
+
+              <div class="contact-details">
+                <div class="contact-detail-item">
+                  <span class="detail-icon">✉️</span>
+                  <div>
+                    <span class="detail-label">Email</span>
+                    <a href="mailto:abhaysrivastav0982aa@gmail.com" class="detail-value" id="email-address">abhaysrivastav0982aa@gmail.com</a>
+                  </div>
+                  <button class="copy-btn" id="copy-email-btn" title="Copy email" aria-label="Copy email">
+                    <span class="copy-icon">⎘</span>
+                    <span class="check-icon">✓</span>
+                  </button>
+                </div>
+                <div class="contact-detail-item">
+                  <span class="detail-icon">📍</span>
+                  <div>
+                    <span class="detail-label">Location</span>
+                    <span class="detail-value">India (Open for Remote)</span>
+                  </div>
+                </div>
+                <div class="contact-detail-item">
+                  <span class="detail-icon">💼</span>
+                  <div>
+                    <span class="detail-label">Role</span>
+                    <span class="detail-value">Codomax Web Dev Intern</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="response-note">
+                <span>⚡</span> Typically replies within 12–24 hours.
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-col reveal-right">
+            <div class="contact-form-card">
+              <h3 class="form-heading">Send a Message</h3>
+              <form class="contact-form" id="contact-form" novalidate>
+                <div class="form-group">
+                  <label for="name">Your Name <span class="req">*</span></label>
+                  <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Riya Sharma" required autocomplete="name">
+                  <span class="form-error" id="name-error">Please enter your name</span>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address <span class="req">*</span></label>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="e.g. riya@example.com" required autocomplete="email">
+                  <span class="form-error" id="email-error">Please enter a valid email</span>
+                </div>
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <input type="text" id="subject" name="subject" class="form-input" placeholder="e.g. Internship Opportunity">
+                </div>
+                <div class="form-group">
+                  <label for="message">Message <span class="req">*</span></label>
+                  <textarea id="message" name="message" class="form-textarea" rows="4" placeholder="Your message..." required></textarea>
+                  <div class="textarea-footer">
+                    <span class="form-error" id="message-error">Message too short (min 10 chars)</span>
+                    <span class="char-count" id="char-count">0 / 500</span>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-glow btn-block" id="submit-btn">
+                  <span class="btn-text">Send Message 🚀</span>
+                  <span class="spinner" aria-hidden="true"></span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#home" class="brand-logo">
+            <div class="logo-cube sm" aria-hidden="true">
+              <div class="cube-face front">AS</div>
+              <div class="cube-face top">AS</div>
+            </div>
+            <span class="brand-text">Abhay<span class="brand-dot">.</span>dev</span>
+          </a>
+          <p>Building the web one line at a time. Codomax Intern 2026.</p>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-col-title">Navigate</span>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-col-title">Connect</span>
+          <ul>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="mailto:abhaysrivastav0982aa@gmail.com">Gmail</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Abhay Srivastava. Built with HTML5, CSS3 & JavaScript.</p>
+        <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑ Top</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Resume Modal -->
+  <div class="modal-backdrop" id="resume-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 id="resume-modal-title">Curriculum Vitae</h3>
+          <span class="modal-sub">Abhay Srivastava — Web Developer</span>
+        </div>
+        <div class="modal-header-actions">
+          <button class="btn btn-glow btn-sm" onclick="window.print()">🖨 Print / PDF</button>
+          <button class="modal-close" id="close-resume-btn" aria-label="Close">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="resume-sheet">
+          <div class="resume-header">
+            <div>
+              <h1>Abhay Srivastava</h1>
+              <p class="resume-role">Frontend Web Developer</p>
+            </div>
+            <div class="resume-contact">
+              <p>📧 abhaysrivastav0982aa@gmail.com</p>
+              <p>📍 India (Open for Remote)</p>
+              <p>🌐 github.com/abhay-srivastava</p>
+            </div>
+          </div>
+          <hr class="r-divider">
+          <div class="r-section">
+            <h4>Summary</h4>
+            <p>Motivated frontend developer with strong foundations in HTML5, CSS3, and JavaScript. Learning Docker for containerized deployments. Interning at Codomax, building real-world web interfaces including 3D Ulpin and Aptiquizz.</p>
+          </div>
+          <div class="r-section">
+            <h4>Technical Skills</h4>
+            <p><strong>Frontend:</strong> HTML5, CSS3 (Flexbox/Grid/Animations), JavaScript (ES6+), Responsive Design</p>
+            <p><strong>Framework / Tools:</strong> Docker (containerization, Compose, image builds)</p>
+            <p><strong>Dev Tools:</strong> VS Code, Git, GitHub, Chrome DevTools</p>
+          </div>
+          <div class="r-section">
+            <h4>Projects</h4>
+            <div class="r-item">
+              <div class="r-item-row"><strong>3D Ulpin</strong><span>2026</span></div>
+              <p>Interactive 3D location pin visualizer with smooth animations and dark UI</p>
+            </div>
+            <div class="r-item">
+              <div class="r-item-row"><strong>Aptiquizz</strong><span>2026</span></div>
+              <p>Web-based aptitude quiz app with timed questions, score tracking, and result feedback</p>
+            </div>
+          </div>
+          <div class="r-section">
+            <h4>Education</h4>
+            <div class="r-item">
+              <div class="r-item-row"><strong>B.Tech – Computer Science & Engineering</strong><span>2022–2026</span></div>
+              <p>Coursework: DSA, OOP, DBMS, Web Development</p>
+            </div>
+          </div>
+          <div class="r-section">
+            <h4>Experience</h4>
+            <div class="r-item">
+              <div class="r-item-row"><strong>Web Development Intern – Codomax</strong><span>Present</span></div>
+              <ul>
+                <li>Building responsive portfolio and client-facing web templates</li>
+                <li>Ensuring cross-browser compatibility and WCAG accessibility</li>
+                <li>Collaborating with code reviews and Git workflows</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
